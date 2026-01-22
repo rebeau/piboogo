@@ -1,0 +1,16 @@
+function onResultVoipToken(result) {}
+function onResultForeGroundPush(result) {}
+function onResultForeGroundPushClick(result) {}
+function onResultCallKitAction(result) {}
+function onResultLocationPermission(result) {}
+function onResultCameraPermission(result) {}
+function onResultRecordAudioPermission(result) {}
+function onResultOverlayPermission(result) {}
+function onResultKakao(result) {}
+function onResultApple(result) {}
+function onResultKakaoLogout(result) {}
+function onResultGoogleLogout(result) {}
+function onResultAppleLogout(result) {}
+function onResultNaverLogout(result) {}
+function onResultFacebookLogout(result) {}
+function onNativeBackClick(result) {}

@@ -1,0 +1,16 @@
+{
+  "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["prettier"],
+  "rules": {
+    "no-var": ["error"],
+    "prettier/prettier": ["error", { "endOfLine": "auto" }],
+    "react-hooks/exhaustive-deps": "off"
+  }
+}

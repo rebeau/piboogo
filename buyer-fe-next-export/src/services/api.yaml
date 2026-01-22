@@ -1,0 +1,126 @@
+
+#GET /v1/product 상품 상세 조회(조회수 자동 증가) API
+
+#GET /v1/product/list 상품 리스트 조회 API
+1. 필터링 최소 금액 적용 안 되는듯 함
+data: {
+    "pageNum": 1,
+    "contentNum": 12,
+    "firstCategoryId": 1,
+    "type": 1,
+    "minimumOrderAmountType": 2
+}
+
+GET /v1/product/list/seller 판매 사용자별 상품 리스트 조회 API
+1. 모바일 페이징
+
+#GET /v1/seller-user 판매 사용자 상세 조회 API
+
+#GET /v1/seller-user/list/recent 새로운 판매 사용자 리스트(최근 가입 상위 10개) 조회 API
+
+#DELETE /v1/product-favorites 상품 즐겨찾기 삭제 API
+
+#GET /v1/product-favorites/list 상품 즐겨찾기 리스트 조회 API
+
+#POST /v1/product-favorites 상품 즐겨찾기 추가 API
+
+#GET /v1/notice/list 공지 사항 리스트 조회 API
+
+#GET /v1/partner-seller/list 파트너 판매 사용자 리스트 조회 API
+
+#GET /v1/category 전체 카테고리 리스트 조회 API
+
+?GET /v1/second-category/list 2차 카테고리 리스트 조회 API
+
+?GET /v1/third-category/list 3차 카테고리 리스트 조회 API
+
+#DELETE /v1/product-cart 장바구니 삭제 API (리스트 조회 에러로 확인 못함)
+
+#GET /v1/product-cart/list 장바구니 리스트 조회 API
+
+#PATCH /v1/product-cart 장바구니 수정 API
+
+#POST /v1/product-cart 장바구니 추가 API
+
+#GET /v1/best-seller/list 베스트 판매 사용자 리스트 조회 API
+
+#GET /v1/promotion 프로모션 상세 조회 API
+
+#GET /v1/promotion/list 프로모션 리스트 조회 API
+
+#GET /v1/product-question/list 상품 문의 리스트 조회 API
+
+#GET /v1/product-question/list/own 나의 상품 문의 리스트 조회 API
+
+#POST /v1/product-question 상품 문의 추가 API
+
+#DELETE /v1/lounge 내 라운지 삭제 API
+
+#GET /v1/lounge 라운지 상세 조회(조회수 자동 증가) API
+
+#GET /v1/lounge/main 라운지 메인 조회 API
+
+GET /v1/lounge/list 라운지 리스트 조회 API
+
+#PATCH /v1/lounge 내 라운지 글 수정 API
+
+#POST /v1/lounge 라운지 글 추가 API
+
+#GET /v1/banner/list 배너 리스트 조회 API
+
+#GET /v1/holding-coupon/list 보유 쿠폰 리스트 조회 API
+
+#GET /v1/first-category/list 1차 카테고리 리스트 조회 API
+
+#GET /v1/seller-category/list 카테고리별 판매 사용자 리스트 조회 API
+
+#GET /v1/promotion-product/list 프로모션 관련 상품 리스트 조회 API
+
+#DELETE /v1/lounge-comment 라운지 댓글 삭제 API
+
+#GET /v1/lounge-comment/list 라운지 댓글 리스트 조회 API
+
+#POST /v1/lounge-comment 라운지 댓글 글 추가 API
+
+#GET /v1/fnq/list 자주 묻는 질문 리스트 조회 API
+
+#GET /v1/orders 주문 상세 조회 API
+
+#GET /v1/orders/list 주문 리스트 조회 API
+
+PATCH /v1/orders/return 주문 반품 요청 API (테스트 못해봄)
+
+#PATCH /v1/orders/cancel 주문 취소 API
+
+POST /v1/orders 주문 추가 API (authorize.net 만확인 )
+
+#GET /v1/product-review/list 상품 리뷰 리스트 조회 API
+
+#GET /v1/product-review/list/own 나의 상품 리뷰 리스트 조회 API
+
+#POST /v1/product-review 상품 리뷰 추가 API
+
+#GET /v1/buyer-user 계정 로그인 API
+
+GET /v1/buyer-user/refresh-token 토큰 재발급(재로그인) API
+
+#GET /v1/buyer-user/my-reward 내 적립금 조회 API
+
+#GET /v1/buyer-user/my-info 내 정보 조회 API
+
+#GET /v1/buyer-user/find-pw 비밀번호 찾기 API
+
+#GET /v1/buyer-user/find-id 이메일 찾기 API
+
+#GET /v1/buyer-user/email-verification 이메일 인증 API
+
+#GET /v1/buyer-user/email-verification/send 인증 메일 전송 API
+
+#GET /v1/buyer-user/check-id ID(이메일 기반) 사용 가능 여부 조회 API
+
+#PATCH /v1/buyer-user 내 정보 수정(주소, 비밀번호) API
+
+#POST /v1/buyer-user 회원 가입 API
+
+get /v1/search 
+1. 상품 이미지가 나타나지 않음

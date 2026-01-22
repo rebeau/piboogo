@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <body>
+    <script>
+      window.addEventListener('message', function (event) {
+        if (
+          event.origin === 'https://accept.authorize.net' ||
+          event.origin === 'https://test.authorize.net'
+        ) {
+          window.parent.postMessage(event.data, '*');
+        }
+      });
+    </script>
+  </body>
+</html>

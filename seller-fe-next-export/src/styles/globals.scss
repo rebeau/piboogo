@@ -1,0 +1,327 @@
+/* 
+기준
+width: 800
+height : 1340
+
+헤더: ((100 / 1340) * 100).toFixed(4)
+컨텐츠 내: ((100 / (1340 - 100)) * 100).toFixed(4)
+
+*/
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Light.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Regular.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Medium.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-SemiBold.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 600;
+  font-style: normal;
+}
+
+@import 'react-quill/dist/quill.snow.css';
+
+* {
+  box-sizing: border-box !important;
+  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Apple SD Gothic Neo'; */
+  /* 'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', 'sans-serif';  */
+  // line-height: 110%;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+
+.no-select {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+:root {
+  --device-pixel-ratio: 1;
+  --vh: 100%;
+  --xs-width: 300px;
+  --sm-width: 480px;
+  --md-width: 768px;
+  --lg-width: 992px;
+  /*
+  base: '0em',
+  xs: '300px',
+  sm: '480px', // 30em
+  md: '768px', // 48em
+  lg: '992px', // 62em
+  xl: '1280px', // 80em
+  '2xl': '1536px', // 96em
+  */
+}
+
+html,
+body {
+  min-height: 100vh;
+  box-sizing: border-box;
+  /* background: #000; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  /* padding: 6rem; */
+}
+
+.no-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+main,
+.main-container {
+  //min-width: 1010px;
+  // min-width: 1200px;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+  background-color: #fff;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  max-width: 700px;
+  max-height: 700px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+.square {
+  width: 100%;
+  height: 100%;
+  background-color: blue;
+  box-sizing: border-box;
+  border: 1px solid #b3b3b3; /* optional: for better visual separation */
+}
+
+/* lottie svg 사이즈 */
+g {
+  width: 100%;
+  height: 100%;
+}
+
+.order-table {
+  box-sizing: border-box;
+  border-top: 1px solid #73829d;
+  border-bottom: 1px solid #eaeaea;
+  thead {
+    height: 1.75rem;
+    tr {
+      th {
+        padding: 1rem 1.5rem;
+        p {
+          color: #2a333c;
+          text-align: center;
+
+          font-family: Poppins;
+          text-transform: none;
+          font-size: 1rem;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 1.75rem;
+        }
+      }
+      th:first-child {
+        width: auto;
+      }
+    }
+  }
+
+  /*
+  td {
+    height: 35px;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 3px;
+    padding-right: 3px;
+    // padding-left: var(--chakra-space-3);
+    // padding-right: var(--chakra-space-3);
+    // padding-left: 3px;
+    // padding-right: 3px;
+  }
+  th:last-child,
+  td:last-child {
+    // width: 45%;
+    // padding-right: 15px;
+    border-right: transparent;
+  }
+  p {
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+  }
+  thead {
+    tr {
+      border-bottom: 1px solid #eaeaea;
+      background-color: #fafafa;
+    }
+    p {
+      font-weight: 400;
+      color: rgba(80, 85, 92, 1);
+    }
+  }
+  tbody {
+    tr {
+      border-bottom: 1px solid #eaeaea;
+    }
+    tr:last-child {
+      border-bottom: transparent;
+    }
+    p {
+      // color: rgba(0, 0, 0, 1);
+    }
+  }
+  */
+}
+
+/* quill */
+/* 툴바 숨기기 */
+.editor-container {
+  height: 100%; /* 부모 컨테이너 높이 100% */
+  width: 100%; /* 부모 컨테이너 너비 100% */
+}
+
+.ql-container.ql-snow {
+  border: 0 !important;
+}
+.ql-container {
+  height: 100% !important;
+}
+.ql-editor {
+  height: 100% !important; /* Quill 에디터 높이 100%로 설정 */
+  width: 100% !important; /* Quill 에디터 너비 100%로 설정 */
+}
+.ql-toolbar {
+  display: none !important;
+}
+
+.custom-range-date {
+  .react-datepicker-wrapper {
+    width: 100%;
+  }
+  .react-datepicker-popper {
+    .react-datepicker {
+      border-radius: 8px;
+    }
+
+    .react-datepicker__day--in-selecting-range,
+    .react-datepicker__day--in-range {
+      background-color: #7895b290;
+    }
+
+    .react-datepicker__header {
+      background-color: #fff;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+
+    .react-datepicker__week {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .react-datepicker__day {
+      padding-top: 1px;
+      height: 30px;
+      width: 30px;
+    }
+
+    .react-datepicker__day-name {
+      height: 30px;
+      width: 30px;
+    }
+    .react-datepicker__day:hover {
+      background-color: rgba(27, 43, 101, 0.1);
+      border-radius: 50%;
+    }
+    .react-datepicker__triangle {
+      display: none;
+    }
+    .react-datepicker__navigation--previous {
+      right: 0px;
+    }
+    .react-datepicker__current-month {
+      padding-left: 20px;
+      text-align: left;
+    }
+    .react-datepicker__day--outside-month {
+      color: #b5b5b5;
+    }
+    .react-datepicker__day--today {
+      // background-color: rgba(2, 205, 128, 0.3);
+      background-color: rgba(27, 43, 101, 0.1);
+      border-radius: 50%;
+    }
+    .react-datepicker__day--selected {
+      padding-top: 0px;
+      border-radius: 50%;
+      color: black;
+      background-color: transparent;
+      // border: 1px solid black;
+    }
+    .react-datepicker__day--keyboard-selected {
+      // background-color: transparent;
+    }
+  }
+
+  .react-datepicker__day--selected {
+    border-radius: 50%;
+    color: #000920;
+  }
+
+  .custom-start-day {
+    border-radius: 50%;
+    border: none;
+    color: #fff !important;
+    background-color: #7895b2 !important;
+  }
+
+  .custom-end-day {
+    border: transparent;
+    border-radius: 50%;
+    color: #fff !important;
+    background-color: #7895b2 !important;
+  }
+
+  .custom-day {
+    color: #fff !important;
+    background-color: #7895b290 !important;
+  }
+}

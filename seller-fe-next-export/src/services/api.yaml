@@ -1,0 +1,100 @@
+DELETE /v1/product 상품 삭제 API
+
+GET /v1/product 상품 상세 조회 API
+1. 가져올 때 두배가 되어서 가져와짐 (db상 이미지는 하나)
+
+GET /v1/product/list 상품 리스트 조회 API
+
+PATCH /v1/product 내 상품 수정 API
+
+POST /v1/product 상품 추가 API
+
+GET /v1/seller-user 계정 로그인 API
+
+GET /v1/seller-user/refresh-token 토큰 재발급(재로그인) API
+
+GET /v1/seller-user/my-info 내 정보 조회 API
+
+GET /v1/seller-user/find-pw 비밀번호 찾기 API
+
+GET /v1/seller-user/find-id 이메일 찾기 API
+
+GET /v1/seller-user/email-verification 이메일 인증 API
+
+GET /v1/seller-user/email-verification/send 인증 메일 전송 API
+
+PATCH /v1/seller-user 내 정보 수정 API
+
+#POST /v1/seller-user 회원 가입 API
+
+GET /v1/category 전체 카테고리 리스트 조회 API
+
+GET /v1/second-category/list 2차 카테고리 리스트 조회 API
+
+GET /v1/third-category/list 3차 카테고리 리스트 조회 API
+
+GET /v1/dash-board/statistics 대시보드 통계 조회 API
+
+GET /v1/dash-board/list 대시보드 판매 상품 순위 리스트 조회 API
+
+DELETE /v1/promotion 프로모션 삭제(허가된 프로모션은 불가능) API
+
+GET /v1/promotion 프로모션 상세 조회 API
+
+GET /v1/promotion/list 프로모션 리스트 조회 API
+
+PATCH /v1/promotion 프로모션 수정(허가된 프로모션은 불가능) API
+
+#POST /v1/promotion 프로모션 요청 API
+
+GET /v1/product-question/list 상품 문의 리스트 조회 API
+
+PATCH /v1/product-question 상품 문의 답변 API
+
+DELETE /v1/lounge 내 라운지 삭제 API
+
+GET /v1/lounge 라운지 상세 조회(조회수 자동 증가) API
+
+GET /v1/lounge/main 라운지 메인 조회 API
+
+GET /v1/lounge/list 라운지 리스트 조회 API
+
+PATCH /v1/lounge 내 라운지 글 수정 API
+
+POST /v1/lounge 라운지 글 추가 API
+
+DELETE /v1/banner 배너 삭제(허가된 배너는 불가능) API
+
+GET /v1/banner 배너 상세 조회 API
+
+GET /v1/banner/list 배너 리스트 조회 API
+
+PATCH /v1/banner 배너 수정(허가된 배너는 불가능) API
+
+POST /v1/banner 배너 요청 API
+
+GET /v1/first-category/list 1차 카테고리 리스트 조회 API
+
+GET /v1/settlement/list정산 리스트 조회 API
+
+DELETE /v1/promotion-product 프로모션 상품 삭제(허가된 프로모션은 불가능) API
+
+GET /v1/promotion-product/list 프로모션 상품 리스트 조회 API
+
+POST /v1/promotion-product 프로모션 상품 등록(허가된 프로모션은 불가능) API
+
+DELETE /v1/lounge-comment 라운지 댓글 삭제 API
+
+GET /v1/lounge-comment/list 라운지 댓글 리스트 조회 API
+
+POST /v1/lounge-comment 라운지 댓글 글 추가 API
+
+GET /v1/orders 주문 상세 조회 API
+
+GET /v1/orders/list 주문 리스트 조회 API
+
+PATCH /v1/orders 주문 메모 수정 API
+
+GET /v1/product-review/list 상품 리뷰 리스트 조회 API
+
+PATCH /v1/product-review 상품 리뷰 답변 API
