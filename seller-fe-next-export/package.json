@@ -46,6 +46,7 @@
     "swiper": "^11.2.0"
   },
   "devDependencies": {
+    "typescript": "^5.4.0",
     "@types/node": "24.1.0",
     "cross-env": "^7.0.3",
     "dotenv-cli": "^8.0.0",
