@@ -15,6 +15,9 @@
   "format:check": "prettier --check --ignore-path .gitignore ."
   },
   "dependencies": {
+    "typescript": "^5.4.0",
+    "@types/react": "^18",
+    "@types/node": "24.1.0",
     "@chakra-ui/icons": "^2.1.1",
     "@chakra-ui/next-js": "^2.2.0",
     "@chakra-ui/react": "^2.8.2",
@@ -46,9 +49,6 @@
     "swiper": "^11.2.0"
   },
   "devDependencies": {
-  "typescript": "^5.4.0",
-  "@types/react": "^18",
-  "@types/node": "24.1.0",
   "cross-env": "^7.0.3",
   "dotenv-cli": "^8.0.0",
   "eslint": "^8.57.0",
