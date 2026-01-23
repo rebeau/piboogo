@@ -3,14 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 4002",
-    "build:dev": "dotenv -e .env.development next build",
-    "build:prod": "NEXT_PUBLIC_ENV=production next build",
-    "start": "next start",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore .",
-    "format": "prettier --write .",
-    "format:fix": "prettier --write --ignore-path .gitignore .",
-    "format:check": "prettier --check --ignore-path .gitignore ."
+  "dev": "next dev --port 4002",
+  "build": "npm run build:prod",
+  "build:dev": "dotenv -e .env.development next build",
+  "build:prod": "cross-env NEXT_PUBLIC_ENV=production next build",
+  "start": "next start",
+  "vercel-build": "npm run build:prod",
+  "lint": "eslint . --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore .",
+  "format": "prettier --write .",
+  "format:fix": "prettier --write --ignore-path .gitignore .",
+  "format:check": "prettier --check --ignore-path .gitignore ."
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
