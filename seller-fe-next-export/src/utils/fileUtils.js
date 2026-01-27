@@ -33,7 +33,7 @@ export const parseUrlToFile = async (url, filename) => {
       responseType: 'blob', // Blob 데이터로 응답받기
       headers: {
         // 'Content-Type': 'application/octet-stream', // 요청에 맞는 Content-Type 설정
-        'Access-Control-Allow-Origin': '*',
+ 
       },
     });
     // 응답이 정상인지 확인
