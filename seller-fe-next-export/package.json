@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+  "vercel-build": "node copy-env.js && next build",
   "dev": "next dev --port 4002",
   "build": "npm run build:prod",
   "build:dev": "dotenv -e .env.development next build",
