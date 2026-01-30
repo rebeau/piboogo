@@ -2,7 +2,7 @@ import utils from '@/utils';
 import api from './api';
 
 const getSeller = async (data) => {
-  const result = await api.get(`v1/seller-user`, {
+  const result = await api.get(`/seller-user`, {
     token: false,
     body: data,
     isCommonError: false,
