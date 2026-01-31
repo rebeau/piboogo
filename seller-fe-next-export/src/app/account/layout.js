@@ -18,6 +18,22 @@ const AccountLayout = ({ children }) => {
   const [title, setTitle] = useState('');
 
   useEffect(() => {
+
+  // --- [추가 시작] 브라우저 저장소 강제 청소 로직 ---
+    if (typeof window !== 'undefined') {
+      // 세션 스토리지를 사용하여 페이지를 닫기 전까지 '딱 한 번'만 실행되도록 함
+      const isCleaned = sessionStorage.getItem('account_storage_fixed');
+      
+      if (!isCleaned) {
+        localStorage.clear(); // 꼬여있는 언어/텍스트 설정 삭제
+        sessionStorage.setItem('account_storage_fixed', 'true');
+        window.location.reload(); // 깨끗한 상태로 새로고침
+        return; // 새로고침이 일어날 것이므로 아래 로직은 실행하지 않음
+      }
+    }
+    // --- [추가 끝] ---
+
+    
     console.log(pathName);
     if (pathName === ACCOUNT.LOGIN) {
       setTitle(localeText(LANGUAGES.ACC.LOGIN.LOGIN));
