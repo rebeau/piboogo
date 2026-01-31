@@ -1,3 +1,22 @@
+import { useEffect } from 'react';
+
+// 로그인 화면이 렌더링될 때 한 번 실행
+useEffect(() => {
+  // 예전 HTTP 시절의 잘못된 세션 정보가 남아있을 수 있으므로 청소
+  const isCleaned = sessionStorage.getItem('initial_clean');
+  
+  if (!isCleaned) {
+    window.localStorage.clear();
+    window.sessionStorage.clear();
+    // 청소 완료 표시를 해서 무한 새로고침 방지
+    sessionStorage.setItem('initial_clean', 'true');
+    window.location.reload(); 
+  }
+}, []);
+
+
+
+
 'use client';
 
 import TitleTextInput from '@/components/input/custom/TitleTextInput';
