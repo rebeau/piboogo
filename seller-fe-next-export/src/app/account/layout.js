@@ -17,34 +17,36 @@ const AccountLayout = ({ children }) => {
 
   const [title, setTitle] = useState('');
 
-  useEffect(() => {
+useEffect(() => {
+    // 1. 안전하게 텍스트를 가져오는 도우미 함수 (핵심)
+    const getSafeText = (langObj) => {
+      if (!langObj) return '';
+      // 우선 순위: 1. 시스템 설정 언어 텍스트 -> 2. 시스템 기본 영어(EN) 텍스트 -> 3. 빈값
+      return localeText(langObj) || langObj['EN'] || '';
+    };
 
-  // --- [추가 시작] 브라우저 저장소 강제 청소 로직 ---
-    if (typeof window !== 'undefined') {
-      // 세션 스토리지를 사용하여 페이지를 닫기 전까지 '딱 한 번'만 실행되도록 함
-      const isCleaned = sessionStorage.getItem('account_storage_fixed');
-      
-      if (!isCleaned) {
-        localStorage.clear(); // 꼬여있는 언어/텍스트 설정 삭제
-        sessionStorage.setItem('account_storage_fixed', 'true');
-        window.location.reload(); // 깨끗한 상태로 새로고침
-        return; // 새로고침이 일어날 것이므로 아래 로직은 실행하지 않음
-      }
-    }
-    // --- [추가 끝] ---
-
-    
     console.log(pathName);
+
+    // 2. 타이틀 설정 시 위에서 만든 getSafeText 함수 사용
     if (pathName === ACCOUNT.LOGIN) {
-      setTitle(localeText(LANGUAGES.ACC.LOGIN.LOGIN));
+      setTitle(getSafeText(LANGUAGES.ACC.LOGIN.LOGIN));
     } else if (pathName === ACCOUNT.FIND) {
-      setTitle(localeText(LANGUAGES.ACC.FIND.FIND_ACCOUNT));
+      setTitle(getSafeText(LANGUAGES.ACC.FIND.FIND_ACCOUNT));
     } else if (pathName === ACCOUNT.SIGN_UP) {
-      setTitle(localeText(LANGUAGES.ACC.SU.SIGN_UP));
+      setTitle(getSafeText(LANGUAGES.ACC.SU.SIGN_UP));
     } else {
       console.log('페이지 못찾음');
     }
-  }, [pathName, lang]);
+    
+    // 3. 만약 영문에서 글자가 안 보이는 문제가 지속된다면 
+    // 브라우저의 언어 설정이 비어있는지 체크하여 강제로 'EN' 주입 (새로고침 없음)
+    if (typeof window !== 'undefined' && !localStorage.getItem('piboogo_lang')) {
+      localStorage.setItem('piboogo_lang', 'EN');
+    }
+
+  }, [pathName, lang, localeText]); // localeText 함수도 변화를 감지하도록 추가
+
+  
 
   return isMobile(true) ? (
     <main>
