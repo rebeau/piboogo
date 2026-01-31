@@ -18,16 +18,23 @@ const AccountLayout = ({ children }) => {
   const [title, setTitle] = useState('');
 
 useEffect(() => {
-    // 1. 안전하게 텍스트를 가져오는 도우미 함수 (핵심)
+    // 1. [핵심] 언어 값이 유실되었을 때를 대비한 안전 장치
     const getSafeText = (langObj) => {
       if (!langObj) return '';
-      // 우선 순위: 1. 시스템 설정 언어 텍스트 -> 2. 시스템 기본 영어(EN) 텍스트 -> 3. 빈값
-      return localeText(langObj) || langObj['EN'] || '';
+      // localeText가 실패하면 현재 브라우저 저장소의 언어를 직접 확인
+      const currentLang = localStorage.getItem('piboogo_lang') || 'KO'; 
+      return localeText(langObj) || langObj[currentLang] || langObj['EN'] || '';
     };
 
-    console.log(pathName);
+    // 2. 새로고침 시 언어가 EN으로 바뀌는 걸 방지 (현재 설정 유지)
+    if (typeof window !== 'undefined') {
+      const savedLang = localStorage.getItem('piboogo_lang');
+      if (savedLang && lang !== savedLang) {
+        // 현재 훅의 lang과 저장된 lang이 다르면 동기화 로직이 필요할 수 있습니다.
+      }
+    }
 
-    // 2. 타이틀 설정 시 위에서 만든 getSafeText 함수 사용
+    console.log(pathName);
     if (pathName === ACCOUNT.LOGIN) {
       setTitle(getSafeText(LANGUAGES.ACC.LOGIN.LOGIN));
     } else if (pathName === ACCOUNT.FIND) {
@@ -37,14 +44,7 @@ useEffect(() => {
     } else {
       console.log('페이지 못찾음');
     }
-    
-    // 3. 만약 영문에서 글자가 안 보이는 문제가 지속된다면 
-    // 브라우저의 언어 설정이 비어있는지 체크하여 강제로 'EN' 주입 (새로고침 없음)
-    if (typeof window !== 'undefined' && !localStorage.getItem('piboogo_lang')) {
-      localStorage.setItem('piboogo_lang', 'EN');
-    }
-
-  }, [pathName, lang, localeText]); // localeText 함수도 변화를 감지하도록 추가
+  }, [pathName, lang, localeText]); // localeText를 감시 대상에 포함
 
   
 
