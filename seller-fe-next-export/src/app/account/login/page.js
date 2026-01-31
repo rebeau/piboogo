@@ -1,19 +1,39 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-// 로그인 화면이 렌더링될 때 한 번 실행
-useEffect(() => {
-  // 예전 HTTP 시절의 잘못된 세션 정보가 남아있을 수 있으므로 청소
-  const isCleaned = sessionStorage.getItem('initial_clean');
-  
-  if (!isCleaned) {
-    window.localStorage.clear();
-    window.sessionStorage.clear();
-    // 청소 완료 표시를 해서 무한 새로고침 방지
-    sessionStorage.setItem('initial_clean', 'true');
-    window.location.reload(); 
-  }
-}, []);
+export default function LoginPage() {
+  const [isReady, setIsReady] = useState(false);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // 1. 유효하지 않은 예전 세션 데이터가 있는지 확인
+      const hasOldData = localStorage.getItem('accessToken') || localStorage.getItem('userInfo');
+      const isCleaned = sessionStorage.getItem('is_fixed_v1');
+
+      if (!isCleaned && hasOldData) {
+        // 2. 문제가 될 만한 데이터만 콕 집어서 삭제 (clear 대신 추천)
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('userInfo');
+        localStorage.removeItem('menuList');
+        
+        // 3. 청소 완료 표시 후 상태 업데이트
+        sessionStorage.setItem('is_fixed_v1', 'true');
+        console.log("Old storage cleared for HTTPS migration.");
+      }
+      
+      setIsReady(true); // 청소 작업이 끝났음을 알림
+    }
+  }, []);
+
+  // 4. 데이터 정리가 끝나기 전까지는 빈 화면 대신 로딩 표시 (선택 사항)
+  if (!isReady) return null; 
+
+  return (
+    <>
+      {/* 여기에 기존 로그인 페이지의 return 내용을 그대로 두세요 */}
+      <div>로그인 폼 코드...</div>
+    </>
+  );
+}
 
 
 
